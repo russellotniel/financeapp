@@ -1,33 +1,16 @@
 import React from 'react';
-// node.js library that concatenates classes (strings)
-import classnames from 'classnames';
 import Link from 'next/link';
-// javascipt plugin for creating charts
 import Chart from 'chart.js';
-// react plugin used to create charts
 import { Pie } from 'react-chartjs-2';
-// reactstrap components
-import { Button, Card, CardHeader, CardBody, NavItem, NavLink, Nav, Progress, Table, Container, Row, Col } from 'reactstrap';
-// layout for this page
+import { Button, Card, CardHeader, CardBody, Table, Container, Row, Col } from 'reactstrap';
 import Admin from 'layouts/Admin.js';
-// core components
-import { chartOptions, parseOptions, chartExample1, chartExample2 } from 'variables/charts.js';
-
+import { chartOptions, parseOptions } from 'variables/charts.js';
 import AdminDetailHeader from 'components/Headers/AdminDetailHeader.js';
 
-const UserDetail = (props) => {
-	const [activeNav, setActiveNav] = React.useState(1);
-	const [chartExample1Data, setChartExample1Data] = React.useState('data1');
-
+const UserDetail = () => {
 	if (window.Chart) {
 		parseOptions(Chart, chartOptions());
 	}
-
-	const toggleNavs = (e, index) => {
-		e.preventDefault();
-		setActiveNav(index);
-		setChartExample1Data('data' + index);
-	};
 
 	const proposed_data = {
 		labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -103,47 +86,49 @@ const UserDetail = (props) => {
 							</CardHeader>
 							<CardBody>
 								{/* Value */}
-								<Row>
+								<Row className='d-flex justify-content-center align-items-center'>
 									<Col className='ml-0' xl='12'>
-										<Table className='align-items-center table-flush border' responsive>
+										<Table className='align-items-center table-flush border w-50 m-auto' responsive>
 											<thead className='thead-light'>
 												<tr>
 													<th scope='col'>Value</th>
-													<th scope='col'>Result</th>
+													<th scope='col' className='text-right'>
+														Result
+													</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
 													<th scope='row'>Contribution</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Return</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Price Return</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Expected Return</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Dividend</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Alpha</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Risk Free Rate</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 												<tr>
 													<th scope='row'>Equity Risk Premium</th>
-													<td>-</td>
+													<td className='text-right'>-</td>
 												</tr>
 											</tbody>
 										</Table>
@@ -250,14 +235,23 @@ const UserDetail = (props) => {
 										<Card className='shadow'>
 											<CardBody>
 												<h3>Proposed Composition</h3>
-												<div className='chart mt-4'>
-													<Pie data={proposed_data} />
+												<div className='chart mt-4 d-flex justify-content-center align-items-center flex-column'>
+													{/* <Pie data={proposed_data} /> */}
+
+													<h4 className='text-center'>You haven't generated a proposed composition yet</h4>
+													<h4 className='text-center'>Click the button below to generate.</h4>
 												</div>
 												<div className='text-right'>
-													<Link href={'/admin/userdetail/proposedcomposition'}>
+													{/* <Link href={'/admin/userdetail/proposedcomposition'}>
 														<Button className='mt-4'>View Detail</Button>
+													</Link> */}
+													<Link href={'/admin/rebalance/'}>
+														<Button className='mt-4' color='primary'>
+															Rebalance
+														</Button>
 													</Link>
 												</div>
+												{/* <h1>Test</h1> */}
 											</CardBody>
 										</Card>
 									</Col>

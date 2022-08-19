@@ -47,8 +47,12 @@ const CurrentComposition = () => {
 											<th scope='col'>Avg Price</th>
 											<th scope='col'>Last Price</th>
 											<th scope='col'>Performance</th>
-											<th scope='col'>Benchmark</th>
-											<th scope='col'>Performance</th>
+											<th scope='col' className='bg-primary text-secondary'>
+												Benchmark
+											</th>
+											<th scope='col' className='bg-primary text-secondary'>
+												Performance
+											</th>
 										</tr>
 									</thead>
 									<tbody>

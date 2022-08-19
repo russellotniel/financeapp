@@ -40,8 +40,8 @@ function AdminDashboard() {
 						<Card className='shadow'>
 							<CardHeader className='border-0 d-flex justify-content-between align-items-center'>
 								<h3 className='mb-0'>User List</h3>
-								<Link href={'addUser/form1'} passHref>
-									<Button>Add New User</Button>
+								<Link href={'addUser/personal-info'} passHref>
+									<Button color='primary'>Add New User</Button>
 								</Link>
 							</CardHeader>
 							<CardBody>
